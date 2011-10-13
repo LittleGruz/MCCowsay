@@ -1,0 +1,10 @@
+name: MCCowsay
+main: littlegruz.cowsay.MCCowsay
+version: 1.5
+commands:
+   cowsay:
+      description: Displays an ASCII cow with the users message
+      usage: /cowsay ['h'] [type] <message>
+   cowkillsay:
+      description: Toggles the appearance of a cowsay message on cow death
+      usage: /cowkillsay
