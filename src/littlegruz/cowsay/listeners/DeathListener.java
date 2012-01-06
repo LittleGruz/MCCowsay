@@ -1,6 +1,8 @@
-package littlegruz.cowsay;
+package littlegruz.cowsay.listeners;
 
 import java.util.Random;
+
+import littlegruz.cowsay.MCCowsay;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;

@@ -1,6 +1,6 @@
 name: MCCowsay
 main: littlegruz.cowsay.MCCowsay
-version: 1.5
+version: 1.6
 commands:
    cowsay:
       description: Displays an ASCII cow with the users message
@@ -8,3 +8,16 @@ commands:
    cowkillsay:
       description: Toggles the appearance of a cowsay message on cow death
       usage: /cowkillsay
+   cowsaycooldown:
+      description: Sets the cooldown time between cowsay command calls
+      usage: /cowsaycooldown <time_in_sec>
+permissions:
+   mccowsay.cowsay:
+      description: Displays an ASCII cow with the users message
+      default: true
+   mccowsay.cowkillsay:
+      description: Toggles the appearance of a cowsay message on cow death
+      default: op
+   mccowsay.cooldown:
+      description: Sets the cooldown time between cowsay command calls
+      default: op
