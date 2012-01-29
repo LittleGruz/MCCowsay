@@ -28,6 +28,7 @@ public class MCCowsay extends JavaPlugin implements CommandExecutor{
    private HashMap<String, String> cowMap;
    private int cooldownTime;
    private boolean killsay;
+   private boolean canCow;
 
    public void onEnable(){
       PluginManager pm = this.getServer().getPluginManager();
@@ -36,19 +37,39 @@ public class MCCowsay extends JavaPlugin implements CommandExecutor{
       pm.registerEvent(Event.Type.PLAYER_JOIN, playerListener, Event.Priority.Normal, this);
       pm.registerEvent(Event.Type.PLAYER_QUIT, playerListener, Event.Priority.Normal, this);
       cowMap = new HashMap<String, String>();
-      killsay = true;
-      cooldownTime = 300;
-      log.info("MCCowsay v1.6 enabled");
+      
+      // Pulling data from config.yml
+      if(getConfig().isBoolean("killsay"))
+         killsay = getConfig().getBoolean("killsay");
+      else
+         killsay = true;
+      if(getConfig().isBoolean("can_all_cow"))
+         canCow = getConfig().getBoolean("can_all_cow");
+      else
+         canCow = true;
+      if(getConfig().isInt("cooldown"))
+         cooldownTime = getConfig().getInt("cooldown") * 20;
+      else
+         cooldownTime = 300;
+      
+      log.info("MCCowsay v1.7 enabled");
    }
 
    public void onDisable(){
-      log.info("MCCowsay v1.6 disabled");
+      saveConfig();
+      log.info("MCCowsay v1.7 disabled");
    }
 
    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
       Player player;
       if(cmd.getName().equalsIgnoreCase("cowsay")){
-         if(sender.hasPermission("mccowsay.cowsay")){
+         boolean pass;
+         if(canCow)
+            pass = true;
+         else
+            pass = sender.hasPermission("mccowsay.cowsay");
+         
+         if(pass){
             int i, found;
             Random rand;
             String output, fileLine;
@@ -155,14 +176,18 @@ public class MCCowsay extends JavaPlugin implements CommandExecutor{
             else
                sender.sendMessage("Please do not use the console to use /cowsay");
          }
+         else
+            sender.sendMessage("You do not have sufficient permissions");
       }
       else if(cmd.getName().equalsIgnoreCase("cowkillsay")){
          if(sender.hasPermission("mccowsay.cowkillsay")){
             if(killsay){
                killsay = false;
+               getConfig().set("killsay", killsay);
                getServer().broadcastMessage("Cowkillsay is now disabled");
             }else{
                killsay = true;
+               getConfig().set("killsay", killsay);
                getServer().broadcastMessage("Cowkillsay is now enabled");
             }
          }else
@@ -173,6 +198,7 @@ public class MCCowsay extends JavaPlugin implements CommandExecutor{
             if(args.length == 1){
                try{
                cooldownTime = Integer.parseInt(args[0]) * 20;
+               getConfig().set("cooldown", cooldownTime);
                sender.sendMessage("Cooldown time set to " + cooldownTime / 20 + " seconds");
                }catch(Exception e){
                   sender.sendMessage("Please use an integer as time input");
