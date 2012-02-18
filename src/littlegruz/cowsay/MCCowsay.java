@@ -20,13 +20,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class MCCowsay extends JavaPlugin implements CommandExecutor{
    Logger log = Logger.getLogger("THIS...IS...COWSAY! *push*");
-   File file = new File("cows.txt");
+   private File file;
    private HashMap<String, String> cowMap;
    private int cooldownTime;
    private boolean killsay;
    private boolean canCow;
 
    public void onEnable(){
+      //Create the directory and files if needed
+      new File(getDataFolder().toString()).mkdir();
+      file = new File(getDataFolder().toString() + "/cows.txt");
+      
       getServer().getPluginManager().registerEvents(new DeathListener(this), this);
       getServer().getPluginManager().registerEvents(new CowPlayerListener(this), this);
       
@@ -46,12 +50,12 @@ public class MCCowsay extends JavaPlugin implements CommandExecutor{
       else
          cooldownTime = 300;
       
-      log.info("MCCowsay v1.7 enabled");
+      log.info("MCCowsay v1.8 enabled");
    }
 
    public void onDisable(){
       saveConfig();
-      log.info("MCCowsay v1.7 disabled");
+      log.info("MCCowsay v1.8 disabled");
    }
 
    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
@@ -201,6 +205,32 @@ public class MCCowsay extends JavaPlugin implements CommandExecutor{
             else
                sender.sendMessage("The correct format is /cooldowntime <time_in_sec>");
          }
+      }
+      else if(cmd.getName().equalsIgnoreCase("cowsaycows")){
+         boolean pass;
+         if(canCow)
+            pass = true;
+         else
+            pass = sender.hasPermission("mccowsay.cowsaycows");
+         
+         if(pass){
+            sender.sendMessage("Current cow list:");
+            sender.sendMessage("(default)");
+            sender.sendMessage("head-in");
+            sender.sendMessage("moose");
+            sender.sendMessage("moofasa");
+            sender.sendMessage("elephant");
+            sender.sendMessage("udder");
+            sender.sendMessage("tux");
+            sender.sendMessage("tiny");
+            
+            if(file.exists()){
+               sender.sendMessage("Your super special awesome server admin(s) have added a");
+               sender.sendMessage("custom cow file! Contact them for their cow names.");
+            }
+         }
+         else
+            sender.sendMessage("You do not have sufficient permissions");
       }
       
       return true;

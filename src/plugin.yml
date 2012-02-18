@@ -1,10 +1,13 @@
 name: MCCowsay
 main: littlegruz.cowsay.MCCowsay
-version: 1.7
+version: 1.8
 commands:
    cowsay:
       description: Displays an ASCII cow with the users message
       usage: /cowsay ['h'] [type] <message>
+   cowsaycows:
+      description: Lists the available cows
+      usage: /cowsaycows
    cowkillsay:
       description: Toggles the appearance of a cowsay message on cow death
       usage: /cowkillsay
@@ -14,6 +17,9 @@ commands:
 permissions:
    mccowsay.cowsay:
       description: Displays an ASCII cow with the users message
+      default: op
+   mccowsay.cowsaycows:
+      description: Lists the available cows
       default: op
    mccowsay.cowkillsay:
       description: Toggles the appearance of a cowsay message on cow death
