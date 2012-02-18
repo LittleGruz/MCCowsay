@@ -5,18 +5,20 @@ import java.util.Random;
 import littlegruz.cowsay.MCCowsay;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.EntityListener;
 
-public class DeathListener extends EntityListener{
+public class DeathListener implements Listener{
 
    public static MCCowsay plugin;
    
    public DeathListener(MCCowsay instance) {
            plugin = instance;
    }
-   
+
+   @EventHandler
    public void onEntityDeath(EntityDeathEvent event){
       String entityName;
       int randInt;
@@ -56,6 +58,5 @@ public class DeathListener extends EntityListener{
             }
          }
       }
-      
    }
 }

@@ -16,26 +16,20 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MCCowsay extends JavaPlugin implements CommandExecutor{
    Logger log = Logger.getLogger("THIS...IS...COWSAY! *push*");
    File file = new File("cows.txt");
-   private final DeathListener deathListener = new DeathListener(this);
-   private final CowPlayerListener playerListener = new CowPlayerListener(this);
    private HashMap<String, String> cowMap;
    private int cooldownTime;
    private boolean killsay;
    private boolean canCow;
 
    public void onEnable(){
-      PluginManager pm = this.getServer().getPluginManager();
-      pm.registerEvent(Event.Type.ENTITY_DEATH, deathListener, Event.Priority.Normal, this);
-      pm.registerEvent(Event.Type.PLAYER_COMMAND_PREPROCESS, playerListener, Event.Priority.Normal, this);
-      pm.registerEvent(Event.Type.PLAYER_JOIN, playerListener, Event.Priority.Normal, this);
-      pm.registerEvent(Event.Type.PLAYER_QUIT, playerListener, Event.Priority.Normal, this);
+      getServer().getPluginManager().registerEvents(new DeathListener(this), this);
+      getServer().getPluginManager().registerEvents(new CowPlayerListener(this), this);
+      
       cowMap = new HashMap<String, String>();
       
       // Pulling data from config.yml
