@@ -17,7 +17,8 @@ public class CowPlayerListener implements Listener {
 
    @EventHandler
    public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event){
-      if(event.getMessage().contains("cowsay ")){
+      if(event.getMessage().contains("cowsay ")
+            && !(event.getMessage().contains("addacommand") || event.getMessage().contains("addopcommand"))){
          if(plugin.getCowMap().get(event.getPlayer().getName()).compareTo("T") == 0){
             final String name;
             name = event.getPlayer().getName();
