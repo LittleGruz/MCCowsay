@@ -1,14 +1,14 @@
 name: MCCowsay
 main: littlegruz.cowsay.CowsayMain
-version: 0.1
+version: 1.0
 platform: SERVER
 author: LittleGruz
 
 commands:
    cowsay:
       description: Displays an ASCII cow with the users message
-      usage: /cowsay ['h'] [type] <message>
+      usage: /cowsay [type] <message>
 permissions:
    mccowsay.cowsay:
-      description: Displays an ASCII cow with the users message
+      description: Allows the display of an ASCII cow with the users message
       default: op
