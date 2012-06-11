@@ -2,40 +2,29 @@ package littlegruz.cowsay.listeners;
 
 import java.util.Random;
 
-import littlegruz.cowsay.MCCowsay;
-
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
+import org.spout.api.entity.Entity;
+import org.spout.api.event.EventHandler;
+import org.spout.api.event.Listener;
+import org.spout.api.event.entity.EntityDeathEvent;
+import org.spout.api.player.Player;
+import org.spout.vanilla.controller.living.creature.passive.Cow;
 
 public class DeathListener implements Listener{
-
-   public static MCCowsay plugin;
    
-   public DeathListener(MCCowsay instance) {
-           plugin = instance;
-   }
-
+   // If a cow was killed in the same chunk, then send every player a kill message
    @EventHandler
    public void onEntityDeath(EntityDeathEvent event){
-      String entityName;
       int randInt;
       Random rand;
-      
-      if(!plugin.isKillsay())
-         return;
 
       rand = new Random();
-      entityName = event.getEntity().toString().substring(5);
       
-      // Determine if the cow kill was by a player
-      if(entityName.compareToIgnoreCase("cow") == 0){
-         if(event.getEntity().getLastDamageCause() instanceof EntityDamageByEntityEvent){
-            EntityDamageByEntityEvent entityDamageEvent = (EntityDamageByEntityEvent) event.getEntity().getLastDamageCause();
-            if(entityDamageEvent.getDamager() instanceof Player){
-               Player player = (Player) entityDamageEvent.getDamager();
+      if(event.getEntity() instanceof Cow){
+         // Search for every entity in the chunk
+         for(Entity e : event.getEntity().getChunk().getLiveEntities()){
+            // Check if the entity is a player
+            if(e instanceof Player){
+               Player player = (Player) e;
                randInt = rand.nextInt() % 6;
                randInt *= randInt;
                randInt = (int) Math.sqrt(randInt);
@@ -45,7 +34,7 @@ public class DeathListener implements Listener{
                   case 0: player.sendMessage(" < Who will look after my children? >"); break;
                   case 1: player.sendMessage(" < Urk... >"); break;
                   case 2: player.sendMessage(" < Use the Force. No! Too much... >"); break;
-                  case 3: player.sendMessage(" < My final incarnation >"); break;
+                  case 3: player.sendMessage(" < I used to be a bowl of petunias >"); break;
                   case 4: player.sendMessage(" < I put on my robe and wizard hat >"); break;
                   case 5: player.sendMessage(" < Enjoy my skin, I sure did >"); break;
                }
