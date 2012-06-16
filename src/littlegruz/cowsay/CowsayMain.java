@@ -1,15 +1,13 @@
 package littlegruz.cowsay;
 
 import java.io.File;
-import java.util.logging.Logger;
 
 import littlegruz.cowsay.commands.Cowsay;
 import littlegruz.cowsay.listeners.DeathListener;
 
-import org.spout.vanilla.VanillaPlugin;
+import org.spout.api.plugin.CommonPlugin;
 
-public class CowsayMain extends VanillaPlugin{
-   private Logger log = Logger.getLogger("THIS...IS...COWSAY! *push*");
+public class CowsayMain extends CommonPlugin{
    
    public void onEnable(){
       // Create the directory and files if needed
@@ -22,11 +20,11 @@ public class CowsayMain extends VanillaPlugin{
       this.getGame().getRootCommand().addSubCommand(this.getGame(), "cowsay").setHelp("Displays an ASCII cow").setExecutor(new Cowsay(this));
       
       // This will print "MCCowsay v1.0 enabled"
-      log.info(this.getDescription().getName() + " v" + this.getDescription().getVersion() + " enabled");
+      getLogger().info(this.getDescription().getName() + " v" + this.getDescription().getVersion() + " enabled");
    }
 
    public void onDisable(){
-      log.info(this.getDescription().getName() + " v" + this.getDescription().getVersion() + " disabled");
+      getLogger().info(this.getDescription().getName() + " v" + this.getDescription().getVersion() + " disabled");
    }
 
    /*

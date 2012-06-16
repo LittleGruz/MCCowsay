@@ -1,6 +1,6 @@
 name: MCCowsay
 main: littlegruz.cowsay.CowsayMain
-version: 1.0
+version: 1.0.1
 platform: SERVER
 author: LittleGruz
 
@@ -12,3 +12,4 @@ permissions:
    mccowsay.cowsay:
       description: Allows the display of an ASCII cow with the users message
       default: op
+depends: [Vanilla]
