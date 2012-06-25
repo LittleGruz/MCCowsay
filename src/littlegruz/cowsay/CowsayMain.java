@@ -14,10 +14,10 @@ public class CowsayMain extends CommonPlugin{
       new File(this.getDataFolder().toString()).mkdir();
       
       // Set up listener
-      this.getGame().getEventManager().registerEvents(new DeathListener(), this);
+      this.getEngine().getEventManager().registerEvents(new DeathListener(), this);
       
       // Set up command
-      this.getGame().getRootCommand().addSubCommand(this.getGame(), "cowsay").setHelp("Displays an ASCII cow").setExecutor(new Cowsay(this));
+      this.getEngine().getRootCommand().addSubCommand(this.getEngine(), "cowsay").setHelp("Displays an ASCII cow").setExecutor(new Cowsay(this));
       
       // This will print "MCCowsay v1.0 enabled"
       getLogger().info(this.getDescription().getName() + " v" + this.getDescription().getVersion() + " enabled");
@@ -34,102 +34,102 @@ public class CowsayMain extends CommonPlugin{
    
    // The default cow
    public void printCow(String playerName, String output){
-      getGame().broadcastMessage(" < " + playerName + output + ">");
-      getGame().broadcastMessage("      \\");
-      getGame().broadcastMessage("       \\  ^__^");
-      getGame().broadcastMessage("           (oo)\\_______");
-      getGame().broadcastMessage("           (__)\\           )\\/\\");
-      getGame().broadcastMessage("                  ||------w|");
-      getGame().broadcastMessage("                  ||          ||");
+      getEngine().broadcastMessage(" < " + playerName + output + ">");
+      getEngine().broadcastMessage("      \\");
+      getEngine().broadcastMessage("       \\  ^__^");
+      getEngine().broadcastMessage("           (oo)\\_______");
+      getEngine().broadcastMessage("           (__)\\           )\\/\\");
+      getEngine().broadcastMessage("                  ||------w|");
+      getEngine().broadcastMessage("                  ||          ||");
    }
    
    // The head-in cow
    public void printHeadIn(String playerName, String output){
-      getGame().broadcastMessage(" < " + output + ">");
-      getGame().broadcastMessage("     \\                             (" + playerName + ")");
-      getGame().broadcastMessage("      \\                               |");
-      getGame().broadcastMessage("       \\  ^__^             /       V");
-      getGame().broadcastMessage("           (oo)\\_______/   __________");
-      getGame().broadcastMessage("           (__)\\           )=(  ____|___  \\____");
-      getGame().broadcastMessage("                  ||------w|   \\\\          \\____  |");
-      getGame().broadcastMessage("                  ||          ||    | |                  | |");
+      getEngine().broadcastMessage(" < " + output + ">");
+      getEngine().broadcastMessage("     \\                             (" + playerName + ")");
+      getEngine().broadcastMessage("      \\                               |");
+      getEngine().broadcastMessage("       \\  ^__^             /       V");
+      getEngine().broadcastMessage("           (oo)\\_______/   __________");
+      getEngine().broadcastMessage("           (__)\\           )=(  ____|___  \\____");
+      getEngine().broadcastMessage("                  ||------w|   \\\\          \\____  |");
+      getEngine().broadcastMessage("                  ||          ||    | |                  | |");
    }
    
    // The moose cow
    public void printMoose(String playerName, String output){
-      getGame().broadcastMessage(" < " + playerName + output + ">");
-      getGame().broadcastMessage("   \\");
-      getGame().broadcastMessage("    \\ \\_\\_      _/_/");
-      getGame().broadcastMessage("     \\      \\__/");
-      getGame().broadcastMessage("             (oo)\\_______");
-      getGame().broadcastMessage("             (__)\\           )\\/\\");
-      getGame().broadcastMessage("                    ||------w|");
-      getGame().broadcastMessage("                    ||          ||");
+      getEngine().broadcastMessage(" < " + playerName + output + ">");
+      getEngine().broadcastMessage("   \\");
+      getEngine().broadcastMessage("    \\ \\_\\_      _/_/");
+      getEngine().broadcastMessage("     \\      \\__/");
+      getEngine().broadcastMessage("             (oo)\\_______");
+      getEngine().broadcastMessage("             (__)\\           )\\/\\");
+      getEngine().broadcastMessage("                    ||------w|");
+      getEngine().broadcastMessage("                    ||          ||");
    }
    
    // The moofasa cow
    public void printMoofasa(String playerName, String output){
-      getGame().broadcastMessage(" < " + playerName + output + ">");
-      getGame().broadcastMessage("    \\");
-      getGame().broadcastMessage("     \\    ____");
-      getGame().broadcastMessage("         /      \\");
-      getGame().broadcastMessage("         | ^__^ |");
-      getGame().broadcastMessage("         | (oo)  |_______");
-      getGame().broadcastMessage("         | (__)  |           )\\/\\");
-      getGame().broadcastMessage("         \\____/||------w|");
-      getGame().broadcastMessage("                  ||          ||");
+      getEngine().broadcastMessage(" < " + playerName + output + ">");
+      getEngine().broadcastMessage("    \\");
+      getEngine().broadcastMessage("     \\    ____");
+      getEngine().broadcastMessage("         /      \\");
+      getEngine().broadcastMessage("         | ^__^ |");
+      getEngine().broadcastMessage("         | (oo)  |_______");
+      getEngine().broadcastMessage("         | (__)  |           )\\/\\");
+      getEngine().broadcastMessage("         \\____/||------w|");
+      getEngine().broadcastMessage("                  ||          ||");
    }
    
    // The elephant cow
    public void printElephant(String playerName, String output){
-      getGame().broadcastMessage(" < " + playerName + output + ">");
-      getGame().broadcastMessage("        \\");
-      getGame().broadcastMessage("         \\    /\\  ___   /\\");
-      getGame().broadcastMessage("             // \\/    \\/ \\\\");
-      getGame().broadcastMessage("            ((     O  O     ))");
-      getGame().broadcastMessage("             \\\\ /       \\ //");
-      getGame().broadcastMessage("              \\/    | |    \\/");
-      getGame().broadcastMessage("               |     | |      |");
-      getGame().broadcastMessage("               |     | |      |");
-      getGame().broadcastMessage("               |  |  \\/   |  |");
-      getGame().broadcastMessage("               |  |        |  |");
-      getGame().broadcastMessage("               |m|         |m|");
+      getEngine().broadcastMessage(" < " + playerName + output + ">");
+      getEngine().broadcastMessage("        \\");
+      getEngine().broadcastMessage("         \\    /\\  ___   /\\");
+      getEngine().broadcastMessage("             // \\/    \\/ \\\\");
+      getEngine().broadcastMessage("            ((     O  O     ))");
+      getEngine().broadcastMessage("             \\\\ /       \\ //");
+      getEngine().broadcastMessage("              \\/    | |    \\/");
+      getEngine().broadcastMessage("               |     | |      |");
+      getEngine().broadcastMessage("               |     | |      |");
+      getEngine().broadcastMessage("               |  |  \\/   |  |");
+      getEngine().broadcastMessage("               |  |        |  |");
+      getEngine().broadcastMessage("               |m|         |m|");
    }
    
    // The endowed cow
    public void printUdder(String playerName, String output){
-      getGame().broadcastMessage(" < " + playerName + output + ">");
-      getGame().broadcastMessage("      \\");
-      getGame().broadcastMessage("       \\   (__)");
-      getGame().broadcastMessage("            o o\\");
-      getGame().broadcastMessage("           (**) \\________");
-      getGame().broadcastMessage("               \\              \\");
-      getGame().broadcastMessage("                |              | \\");
-      getGame().broadcastMessage("                ||----(   )_||  *");
-      getGame().broadcastMessage("                ||       UU   ||");
-      getGame().broadcastMessage("                w            w");
+      getEngine().broadcastMessage(" < " + playerName + output + ">");
+      getEngine().broadcastMessage("      \\");
+      getEngine().broadcastMessage("       \\   (__)");
+      getEngine().broadcastMessage("            o o\\");
+      getEngine().broadcastMessage("           (**) \\________");
+      getEngine().broadcastMessage("               \\              \\");
+      getEngine().broadcastMessage("                |              | \\");
+      getEngine().broadcastMessage("                ||----(   )_||  *");
+      getEngine().broadcastMessage("                ||       UU   ||");
+      getEngine().broadcastMessage("                w            w");
    }
    
    // The tux cow
    public void printTux(String playerName, String output){
-      getGame().broadcastMessage(" < " + playerName + output + ">");
-      getGame().broadcastMessage("      \\");
-      getGame().broadcastMessage("       \\   .---.");
-      getGame().broadcastMessage("           |o_o |");
-      getGame().broadcastMessage("           |:_/  |");
-      getGame().broadcastMessage("         //    \\ \\");
-      getGame().broadcastMessage("        ( |       |  )");
-      getGame().broadcastMessage("       /\"\\      /\"\\");
-      getGame().broadcastMessage("       \\__)==(__/");
+      getEngine().broadcastMessage(" < " + playerName + output + ">");
+      getEngine().broadcastMessage("      \\");
+      getEngine().broadcastMessage("       \\   .---.");
+      getEngine().broadcastMessage("           |o_o |");
+      getEngine().broadcastMessage("           |:_/  |");
+      getEngine().broadcastMessage("         //    \\ \\");
+      getEngine().broadcastMessage("        ( |       |  )");
+      getEngine().broadcastMessage("       /\"\\      /\"\\");
+      getEngine().broadcastMessage("       \\__)==(__/");
    }
    
    // The tiny cow
    public void printTiny(String playerName, String output){
-      getGame().broadcastMessage(" < " + playerName + output + ">");
-      getGame().broadcastMessage("    \\");
-      getGame().broadcastMessage("     \\    ,__,");
-      getGame().broadcastMessage("          (oo)____");
-      getGame().broadcastMessage("          (__)      )\\");
-      getGame().broadcastMessage("               ||---||  *");
+      getEngine().broadcastMessage(" < " + playerName + output + ">");
+      getEngine().broadcastMessage("    \\");
+      getEngine().broadcastMessage("     \\    ,__,");
+      getEngine().broadcastMessage("          (oo)____");
+      getEngine().broadcastMessage("          (__)      )\\");
+      getEngine().broadcastMessage("               ||---||  *");
    }
 }
