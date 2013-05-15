@@ -1,8 +1,10 @@
 name: MCCowsay
-main: littlegruz.cowsay.CowsayMain
-version: 1.0.1
-platform: SERVER
 author: LittleGruz
+version: 1.0.2
+description: Begrudgingly permits the creation of ASCII cows 
+
+platform: SERVER
+main: littlegruz.cowsay.CowsayMain
 
 commands:
    cowsay:

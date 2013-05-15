@@ -33,23 +33,23 @@ public class Cowsay implements CommandExecutor{
             
             // Checks if user specified a cow type
             if(args.getString(0).compareToIgnoreCase("head-in") == 0)
-               plugin.printHeadIn(name.replace(": ", ""), output);
+               plugin.printHeadIn(source, name.replace(": ", ""), output);
             else if(args.getString(0).compareToIgnoreCase("moose") == 0)
-               plugin.printMoose(name, output);
+               plugin.printMoose(source, name, output);
             else if(args.getString(0).compareToIgnoreCase("moofasa") == 0)
-               plugin.printMoofasa(name, output);
+               plugin.printMoofasa(source, name, output);
             else if(args.getString(0).compareToIgnoreCase("elephant") == 0)
-               plugin.printElephant(name, output);
+               plugin.printElephant(source, name, output);
             else if(args.getString(0).compareToIgnoreCase("udder") == 0)
-               plugin.printUdder(name, output);
+               plugin.printUdder(source, name, output);
             else if(args.getString(0).compareToIgnoreCase("tux") == 0)
-               plugin.printTux(name, output);
+               plugin.printTux(source, name, output);
             else if(args.getString(0).compareToIgnoreCase("tiny") == 0)
-               plugin.printTiny(name, output);
+               plugin.printTiny(source, name, output);
             else{
                output = "";
                output = makeMessage(0, output, args);
-               plugin.printCow(name, output);
+               plugin.printCow(source, name, output);
             }
          }
          else

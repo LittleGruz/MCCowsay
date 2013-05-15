@@ -5,6 +5,8 @@ import java.io.File;
 import littlegruz.cowsay.commands.Cowsay;
 import littlegruz.cowsay.listeners.DeathListener;
 
+import org.spout.api.chat.ChatArguments;
+import org.spout.api.command.CommandSource;
 import org.spout.api.plugin.CommonPlugin;
 
 public class CowsayMain extends CommonPlugin{
@@ -20,11 +22,11 @@ public class CowsayMain extends CommonPlugin{
       this.getEngine().getRootCommand().addSubCommand(this.getEngine(), "cowsay").setHelp("Displays an ASCII cow").setExecutor(new Cowsay(this));
       
       // This will print "MCCowsay v1.0 enabled"
-      getLogger().info(this.getDescription().getName() + " v" + this.getDescription().getVersion() + " enabled");
+      getLogger().info("Enabled " + this.getDescription().getName() + " v" + this.getDescription().getVersion());
    }
 
    public void onDisable(){
-      getLogger().info(this.getDescription().getName() + " v" + this.getDescription().getVersion() + " disabled");
+      getLogger().info("Disabled " + this.getDescription().getName() + " v" + this.getDescription().getVersion());
    }
 
    /*
@@ -33,103 +35,103 @@ public class CowsayMain extends CommonPlugin{
     */
    
    // The default cow
-   public void printCow(String playerName, String output){
-      getEngine().broadcastMessage(" < " + playerName + output + ">");
-      getEngine().broadcastMessage("      \\");
-      getEngine().broadcastMessage("       \\  ^__^");
-      getEngine().broadcastMessage("           (oo)\\_______");
-      getEngine().broadcastMessage("           (__)\\           )\\/\\");
-      getEngine().broadcastMessage("                  ||------w|");
-      getEngine().broadcastMessage("                  ||          ||");
+   public void printCow(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + playerName + output + ">"));
+      source.processCommand("say", new ChatArguments("      \\"));
+      source.processCommand("say", new ChatArguments("       \\  ^__^"));
+      source.processCommand("say", new ChatArguments("           (oo)\\_______"));
+      source.processCommand("say", new ChatArguments("           (__)\\           )\\/\\"));
+      source.processCommand("say", new ChatArguments("                  ||------w|"));
+      source.processCommand("say", new ChatArguments("                  ||          ||"));
    }
    
    // The head-in cow
-   public void printHeadIn(String playerName, String output){
-      getEngine().broadcastMessage(" < " + output + ">");
-      getEngine().broadcastMessage("     \\                             (" + playerName + ")");
-      getEngine().broadcastMessage("      \\                               |");
-      getEngine().broadcastMessage("       \\  ^__^             /       V");
-      getEngine().broadcastMessage("           (oo)\\_______/   __________");
-      getEngine().broadcastMessage("           (__)\\           )=(  ____|___  \\____");
-      getEngine().broadcastMessage("                  ||------w|   \\\\          \\____  |");
-      getEngine().broadcastMessage("                  ||          ||    | |                  | |");
+   public void printHeadIn(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + output + ">"));
+      source.processCommand("say", new ChatArguments("     \\                             (" + playerName + ")"));
+      source.processCommand("say", new ChatArguments("      \\                               |"));
+      source.processCommand("say", new ChatArguments("       \\  ^__^             /       V"));
+      source.processCommand("say", new ChatArguments("           (oo)\\_______/   __________"));
+      source.processCommand("say", new ChatArguments("           (__)\\           )=(  ____|___  \\____"));
+      source.processCommand("say", new ChatArguments("                  ||------w|   \\\\          \\____  |"));
+      source.processCommand("say", new ChatArguments("                  ||          ||    | |                  | |"));
    }
    
    // The moose cow
-   public void printMoose(String playerName, String output){
-      getEngine().broadcastMessage(" < " + playerName + output + ">");
-      getEngine().broadcastMessage("   \\");
-      getEngine().broadcastMessage("    \\ \\_\\_      _/_/");
-      getEngine().broadcastMessage("     \\      \\__/");
-      getEngine().broadcastMessage("             (oo)\\_______");
-      getEngine().broadcastMessage("             (__)\\           )\\/\\");
-      getEngine().broadcastMessage("                    ||------w|");
-      getEngine().broadcastMessage("                    ||          ||");
+   public void printMoose(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + playerName + output + ">"));
+      source.processCommand("say", new ChatArguments("   \\"));
+      source.processCommand("say", new ChatArguments("    \\ \\_\\_      _/_/"));
+      source.processCommand("say", new ChatArguments("     \\      \\__/"));
+      source.processCommand("say", new ChatArguments("             (oo)\\_______"));
+      source.processCommand("say", new ChatArguments("             (__)\\           )\\/\\"));
+      source.processCommand("say", new ChatArguments("                    ||------w|"));
+      source.processCommand("say", new ChatArguments("                    ||          ||"));
    }
    
    // The moofasa cow
-   public void printMoofasa(String playerName, String output){
-      getEngine().broadcastMessage(" < " + playerName + output + ">");
-      getEngine().broadcastMessage("    \\");
-      getEngine().broadcastMessage("     \\    ____");
-      getEngine().broadcastMessage("         /      \\");
-      getEngine().broadcastMessage("         | ^__^ |");
-      getEngine().broadcastMessage("         | (oo)  |_______");
-      getEngine().broadcastMessage("         | (__)  |           )\\/\\");
-      getEngine().broadcastMessage("         \\____/||------w|");
-      getEngine().broadcastMessage("                  ||          ||");
+   public void printMoofasa(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + playerName + output + ">"));
+      source.processCommand("say", new ChatArguments("    \\"));
+      source.processCommand("say", new ChatArguments("     \\    ____"));
+      source.processCommand("say", new ChatArguments("         /      \\"));
+      source.processCommand("say", new ChatArguments("         | ^__^ |"));
+      source.processCommand("say", new ChatArguments("         | (oo)  |_______"));
+      source.processCommand("say", new ChatArguments("         | (__)  |           )\\/\\"));
+      source.processCommand("say", new ChatArguments("         \\____/||------w|"));
+      source.processCommand("say", new ChatArguments("                  ||          ||"));
    }
    
    // The elephant cow
-   public void printElephant(String playerName, String output){
-      getEngine().broadcastMessage(" < " + playerName + output + ">");
-      getEngine().broadcastMessage("        \\");
-      getEngine().broadcastMessage("         \\    /\\  ___   /\\");
-      getEngine().broadcastMessage("             // \\/    \\/ \\\\");
-      getEngine().broadcastMessage("            ((     O  O     ))");
-      getEngine().broadcastMessage("             \\\\ /       \\ //");
-      getEngine().broadcastMessage("              \\/    | |    \\/");
-      getEngine().broadcastMessage("               |     | |      |");
-      getEngine().broadcastMessage("               |     | |      |");
-      getEngine().broadcastMessage("               |  |  \\/   |  |");
-      getEngine().broadcastMessage("               |  |        |  |");
-      getEngine().broadcastMessage("               |m|         |m|");
+   public void printElephant(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + playerName + output + ">"));
+      source.processCommand("say", new ChatArguments("        \\"));
+      source.processCommand("say", new ChatArguments("         \\    /\\  ___   /\\"));
+      source.processCommand("say", new ChatArguments("             // \\/    \\/ \\\\"));
+      source.processCommand("say", new ChatArguments("            ((     O  O     ))"));
+      source.processCommand("say", new ChatArguments("             \\\\ /       \\ //"));
+      source.processCommand("say", new ChatArguments("              \\/    | |    \\/"));
+      source.processCommand("say", new ChatArguments("               |     | |      |"));
+      source.processCommand("say", new ChatArguments("               |     | |      |"));
+      source.processCommand("say", new ChatArguments("               |  |  \\/   |  |"));
+      source.processCommand("say", new ChatArguments("               |  |        |  |"));
+      source.processCommand("say", new ChatArguments("               |m|         |m|"));
    }
    
    // The endowed cow
-   public void printUdder(String playerName, String output){
-      getEngine().broadcastMessage(" < " + playerName + output + ">");
-      getEngine().broadcastMessage("      \\");
-      getEngine().broadcastMessage("       \\   (__)");
-      getEngine().broadcastMessage("            o o\\");
-      getEngine().broadcastMessage("           (**) \\________");
-      getEngine().broadcastMessage("               \\              \\");
-      getEngine().broadcastMessage("                |              | \\");
-      getEngine().broadcastMessage("                ||----(   )_||  *");
-      getEngine().broadcastMessage("                ||       UU   ||");
-      getEngine().broadcastMessage("                w            w");
+   public void printUdder(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + playerName + output + ">"));
+      source.processCommand("say", new ChatArguments("      \\"));
+      source.processCommand("say", new ChatArguments("       \\   (__)"));
+      source.processCommand("say", new ChatArguments("            o o\\"));
+      source.processCommand("say", new ChatArguments("           (**) \\________"));
+      source.processCommand("say", new ChatArguments("               \\              \\"));
+      source.processCommand("say", new ChatArguments("                |              | \\"));
+      source.processCommand("say", new ChatArguments("                ||----(   )_||  *"));
+      source.processCommand("say", new ChatArguments("                ||       UU   ||"));
+      source.processCommand("say", new ChatArguments("                w            w"));
    }
    
    // The tux cow
-   public void printTux(String playerName, String output){
-      getEngine().broadcastMessage(" < " + playerName + output + ">");
-      getEngine().broadcastMessage("      \\");
-      getEngine().broadcastMessage("       \\   .---.");
-      getEngine().broadcastMessage("           |o_o |");
-      getEngine().broadcastMessage("           |:_/  |");
-      getEngine().broadcastMessage("         //    \\ \\");
-      getEngine().broadcastMessage("        ( |       |  )");
-      getEngine().broadcastMessage("       /\"\\      /\"\\");
-      getEngine().broadcastMessage("       \\__)==(__/");
+   public void printTux(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + playerName + output + ">"));
+      source.processCommand("say", new ChatArguments("      \\"));
+      source.processCommand("say", new ChatArguments("       \\   .---."));
+      source.processCommand("say", new ChatArguments("           |o_o |"));
+      source.processCommand("say", new ChatArguments("           |:_/  |"));
+      source.processCommand("say", new ChatArguments("         //    \\ \\"));
+      source.processCommand("say", new ChatArguments("        ( |       |  )"));
+      source.processCommand("say", new ChatArguments("       /\"\\      /\"\\"));
+      source.processCommand("say", new ChatArguments("       \\__)==(__/"));
    }
    
    // The tiny cow
-   public void printTiny(String playerName, String output){
-      getEngine().broadcastMessage(" < " + playerName + output + ">");
-      getEngine().broadcastMessage("    \\");
-      getEngine().broadcastMessage("     \\    ,__,");
-      getEngine().broadcastMessage("          (oo)____");
-      getEngine().broadcastMessage("          (__)      )\\");
-      getEngine().broadcastMessage("               ||---||  *");
+   public void printTiny(CommandSource source, String playerName, String output){
+      source.processCommand("say", new ChatArguments(" < " + playerName + output + ">"));
+      source.processCommand("say", new ChatArguments("    \\"));
+      source.processCommand("say", new ChatArguments("     \\    ,__,"));
+      source.processCommand("say", new ChatArguments("          (oo)____"));
+      source.processCommand("say", new ChatArguments("          (__)      )\\"));
+      source.processCommand("say", new ChatArguments("               ||---||  *"));
    }
 }
