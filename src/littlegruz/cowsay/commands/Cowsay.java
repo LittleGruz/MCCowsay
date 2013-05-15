@@ -17,7 +17,7 @@ public class Cowsay implements CommandExecutor{
    }
 
    // Long form because there is already a command type
-   @org.spout.api.command.annotated.Command(aliases = {"tpto"}, desc = "Teleports a player", usage = "<x> <y> <z>")
+   @org.spout.api.command.annotated.Command(aliases = {"cow"}, desc = "Displays an ASCII cow with the users message", usage = "/cowsay [type] <message>")
    @CommandPermissions("mccowsay.cowsay")
    public void processCommand(CommandSource source, Command cmd,
          CommandContext args) throws CommandException{
