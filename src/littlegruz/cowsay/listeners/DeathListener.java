@@ -6,8 +6,8 @@ import org.spout.api.entity.Entity;
 import org.spout.api.event.EventHandler;
 import org.spout.api.event.Listener;
 import org.spout.api.event.entity.EntityDeathEvent;
-import org.spout.api.player.Player;
-import org.spout.vanilla.controller.living.creature.passive.Cow;
+import org.spout.api.entity.Player;
+import org.spout.vanilla.component.entity.living.passive.Cow;
 
 public class DeathListener implements Listener{
    
